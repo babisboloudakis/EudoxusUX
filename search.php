@@ -2,12 +2,20 @@
     include("config.php");
     //session_start();
 
-    if($_GET['keywords']){
+    if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['SearchButton'])){
         echo "My keywords: ". $_GET['keywords']. "<br />";
         $keyword = $_GET['keywords'];
-
-        $results = $mysqli->query("SELECT * FROM users WHERE id='$keyword'");
-        if ($results->num_rows > 0){
+        //upercase
+        //$keyword = strtoupper($keyword);
+        echo $keyword;
+        echo "<br />";
+        $query = "SELECT * FROM users WHERE id='$keyword'";
+        $results = $mysqli->query("SELECT * FROM users WHERE username='$keyword'");
+        If(!$results){
+            echo "fuck";
+            echo "<br />";
+        }
+        if ($results && $results->num_rows > 0){
             while($row = $results->fetch_array()){
                 echo $row['username'] . " " . $row['password'];
                 echo "<br />";
@@ -58,7 +66,7 @@
                                 <input class="form-control form-control-lg form-control-borderless" id="keywords" name="keywords" type="search" placeholder="Search topics or keywords">
                             </div>
                             <div class="col-auto">
-                                <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                <button class="btn btn-lg btn-success" type="submit" name='SearchButton'>Search</button>
                             </div>
                         </div>
                     </form>
