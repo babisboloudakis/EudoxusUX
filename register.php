@@ -1,6 +1,5 @@
 <?php
-    include("session.php");
-    include("header.php")
+    include("header.php");
 ?>    
 
 <?php
@@ -69,6 +68,7 @@
                         <button type="submit" class="btn btn-primary float-right">Sign up</button>                              
                     </div>
                </form>
+                <a href="/login.php" class="text-primary">Έχω ήδη λογαριασμό</a>
             </div>
 
          </div>

@@ -29,6 +29,8 @@
          <div class="row justify-content-center">
 
             <div class="col-3 rounder p-3 mb-5 mt-5 bg-white">
+                <h3>Σύνδεση</h3>
+                <hr>
                 <form action = "" method = "post" class="login-form" >
                     <div class="form-group" id="errorLogin" >
                     </div>
@@ -44,6 +46,8 @@
                         <button type="submit" class="btn btn-primary float-right">Submit</button>                              
                     </div>
                </form>
+               <br>
+               <a href="/register.php" class="text-primary">Δημιουργία λογαριασμού</a>
             </div>
 
          </div>
