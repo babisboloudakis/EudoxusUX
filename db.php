@@ -6,8 +6,7 @@
     `username` varchar(65) NOT NULL default '',
     `password` varchar(65) NOT NULL default '',
     `telephone` varchar(65) default'',
-    `university` varchar(65) default'',
-    `semester` int(4),
+    `type` varchar(65) default 'student',
     PRIMARY KEY (`id`)
     )" ) ) {
         echo "Users Table created!";
@@ -36,4 +35,30 @@
     // } else {
     //     echo "Failed to insert dummy data";
     // }
+
+    if ( $mysqli->query("INSERT INTO books (name,author) VALUES ('EAM','Roussou')") ) {
+        echo "Dummy data inserted successfully!";
+    } else {
+        echo "Dummy data failed..";
+    }
+    if ( $mysqli->query("INSERT INTO books (name,author) VALUES ('EAM2','Rossu')") ) {
+        echo "Dummy data inserted successfully!";
+    } else {
+        echo "Dummy data failed..";
+    }
+    if ( $mysqli->query("INSERT INTO books (name,author) VALUES ('EAM3','ussou')") ) {
+        echo "Dummy data inserted successfully!";
+    } else {
+        echo "Dummy data failed..";
+    }
+    if ( $mysqli->query("INSERT INTO books (name,author) VALUES ('EAM4','Rosou')") ) {
+        echo "Dummy data inserted successfully!";
+    } else {
+        echo "Dummy data failed..";
+    }
+    if ( $mysqli->query("INSERT INTO books (name,author) VALUES ('EAM5','Rous')") ) {
+        echo "Dummy data inserted successfully!";
+    } else {
+        echo "Dummy data failed..";
+    }
 ?> 
