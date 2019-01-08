@@ -5,17 +5,35 @@
     `id` int(4) NOT NULL auto_increment,
     `username` varchar(65) NOT NULL default '',
     `password` varchar(65) NOT NULL default '',
+    `telephone` varchar(65) default'',
+    `university` varchar(65) default'',
+    `semester` int(4),
     PRIMARY KEY (`id`)
     )" ) ) {
-        echo "Table created!";
+        echo "Users Table created!";
     } else {
-        echo "Table creation failed!";
+        echo "Users Table creation failed!";
     }
 
-    echo "Now creating dummy data..";
-    if ( $mysqli->query("INSERT INTO `users` ('username','password') VALUES ('admin', 'admin123')" ) )  {
-        echo "Dummy data inserted successfully!";
+    // Create books table
+    if ( $mysqli->query("CREATE TABLE `books` (
+    `id` int(4) NOT NULL auto_increment,
+    `name` varchar(65) NOT NULL default '',
+    `author` varchar(65) NOT NULL default '',
+    `image` varchar(65) default'',
+    `description` varchar(65) default'',
+    `category` varchar(65),
+    PRIMARY KEY (`id`)
+    )" ) ) {
+        echo "Books Table created!";
     } else {
-        echo "Failed to insert dummy data";
+        echo "Books Table creation failed!";
     }
-?>
+
+    // echo "Now creating dummy data..";
+    // if ( $mysqli->query("INSERT INTO `users` ('username','password') VALUES ('admin', 'admin123')" ) )  {
+    //     echo "Dummy data inserted successfully!";
+    // } else {
+    //     echo "Failed to insert dummy data";
+    // }
+?> 
