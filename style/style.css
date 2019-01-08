@@ -3,6 +3,10 @@
     margin: 0px;
 }
 
+footer {
+    height:40px;
+}
+
 .header {
     background-image: url('../img/bg.jpg');
     background-attachment: fixed;
