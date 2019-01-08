@@ -1,5 +1,5 @@
 
-<?php echo file_get_contents("html/header.html"); ?>
+<?php include("header.php"); ?>
 
         <!-- header -->
         <header class="header">

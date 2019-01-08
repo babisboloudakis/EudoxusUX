@@ -1,45 +1,28 @@
+
 <?php
+    include("header.php");
     include("config.php");
-    session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
+        // Read user credentials
         $fusername = $_POST['username'];
         $fpassword = $_POST['password'];
-
+        // Filter username and password for SQL injection
+        $fusername = mysqli_real_escape_string($mysqli,$fusername);
+        $fpassword = mysqli_real_escape_string($mysqli,$fpassword);
+        // Hash password using md5 Encryption
+        $fpassword = md5($fpassword);
+        // Perform Database query
         $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername' AND password='$fpassword' ");
         if ( $results->num_rows > 0 ) {
-            echo "SUCCESS!";
+            $_SESSION['user'] = $fusername;
+            $_SESSION['pass'] = $fpassword;
         } else {
-            echo "FAIL!";
+            echo "<p class='text-danger text-center'> Please try again. </p>";
         }
     }
 ?>
-
-<html>
-   
-   <head>
-
-    <title>Login Page</title>  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-    <style>
-        .container {
-            /* background: url("./img/login.png"); */
-            /* background-color:red; */
-            background-image: url("/img/login.jpg");
-            height: 100%; 
-
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-
-
-   </head>
-   
-   <body>
 
     <!-- container for login page -->
       <div class="container" >
@@ -66,5 +49,4 @@
          </div>
       </div>
 
-   </body>
-</html>
+<?php echo file_get_contents("html/footer.html"); ?>

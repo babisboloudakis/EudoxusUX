@@ -1,11 +1,19 @@
 <?php
+    include("session.php");
+    include("header.php")
+?>    
+
+<?php
+
     include("config.php");
-    session_start();
 
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
         $fusername = $_POST['username'];
         $fpassword = $_POST['password'];
+        // Filter username and password for SQL injection
+        $fusername = mysqli_real_escape_string($mysqli,$fusername);
+        $fpassword = mysqli_real_escape_string($mysqli,$fpassword);
         // Confirm password field
         $fpassword2 = $_POST['password2'];
 
@@ -13,14 +21,14 @@
         $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername'");
         if ( $results->num_rows > 0 ) {
             echo "USER EXISTS!";
-            // user exists
+            
         } else {
             echo "USER DOESNT EXIST!";
             // user doesn't exist
             // Confirm password
             if ( $fpassword == $fpassword2 ) {
                 echo "USER CREATED!";
-                
+                $fpassword = md5($fpassword);
                 if ( !$mysqli->query("INSERT INTO users (username,password) VALUES ('$fusername','$fpassword')" ) ) {
                     echo "insert failed";
                 }
@@ -29,40 +37,19 @@
             }
         }
     }
+
 ?>
-
-<html>
-   
-   <head>
-
-    <title>Login Page</title>  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-    <style>
-        .container {
-            /* background: url("./img/login.png"); */
-            /* background-color:red; */
-            background-image: url("/img/login.jpg");
-            height: 100%; 
-
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-
-
-   </head>
-   
-   <body>
 
     <!-- container for login page -->
       <div class="container" >
          <div class="row justify-content-center">
 
             <div class="col-5 rounder p-3 mb-5 mt-5 bg-white">
-                <h3>Sign up</h3>
+                <h3>Εγγραφή</h3>
                 <hr>
+                <p>Θα έχετε την δυνατότητα να όρισετε παραπάνω πληροφορίες στην επεξεργασία του
+                    προφίλ σας, σε επόμενο στάδιο.
+                </p>
                 <form action = "" method = "post" class="login-form" >
                     <div class="form-group" id="errorLogin" >
                     </div>
@@ -87,5 +74,4 @@
          </div>
       </div>
 
-   </body>
-</html>
+<?php echo file_get_contents("html/footer.html") ?>
