@@ -1,5 +1,5 @@
 
-<?php include("header.php"); ?>
+<?php require("header.php"); require("config.php") ?>
 
         <!-- header -->
         <header class="header">
@@ -13,6 +13,36 @@
                 </div>
             </div>
         </header>
+
+        <div class="announcements">
+            <h4>Ανακοινώσεις</h4>
+            <hr>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <?php
+                    // Print 3 latest announcements
+                    $results = $mysqli->query("SELECT * FROM announcements ORDER BY id DESC LIMIT 3");
+                    // Display grid
+                    for ($i=0; $i < $results->num_rows; $i++) { 
+                        
+                        $row = $results->fetch_assoc();
+                        // Display single book
+                        echo '<div class="card col-md-3 m-4" >';
+                        // echo    "<a href='item.php?itemid=" .$row['id'] . "'>";
+                        echo    '<img src="'. $row['img'] .'" class="card-img-top" alt="..." style="height:200px; width:100%;">';
+                        echo        '<div class="card-body">'; 
+                        echo            '<h5 class="card-title">'. $row["title"] .'</h5>';
+                        echo        '<p class="card-text text-muted">' . substr($row["text"],0,80) . '</p>';
+                        echo        '</div>';
+                        // echo    "</a>";
+                        echo    '</div>';
+
+                    }
+
+                    ?>
+                </div>
+            </div>
+        </div>
 
 <?php echo file_get_contents("html/footer.html"); ?>
  
