@@ -28,6 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <div class="container">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.php">Αρχική</a></li>
+            <li class="breadcrumb-item"><a href="browse.php">Εξερεύνηση Συγγραμάτων</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo $bname;  ?></li>
+        </ol>
+    </nav>
+
     <div class="row mt-5">
 
         <div class="litem col-md-6">

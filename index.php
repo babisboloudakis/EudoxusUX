@@ -6,8 +6,8 @@
             <div class="overlay">
                 <div class="container">
                     <div class="headertext">
-                        <h1>Καλωςήρθατε στον Εύδοξο!</h1>
-                        <p class="text-muted">Πρώτοι στα συγγράματα</p>
+                        <h1 class="text-white">Καλωςήρθατε στον Εύδοξο!</h1>
+                        <p class="text-light">Πρώτοι στα συγγράματα</p>
                         <a href="browse.php"><button class="btn btn-primary">Δείτε τα συγγράμματα μας!</button></a>
                     </div>
                 </div>
@@ -15,3 +15,4 @@
         </header>
 
 <?php echo file_get_contents("html/footer.html"); ?>
+ 
