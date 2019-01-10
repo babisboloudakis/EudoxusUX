@@ -15,6 +15,7 @@
         $fpassword = mysqli_real_escape_string($mysqli,$fpassword);
         // Confirm password field
         $fpassword2 = $_POST['password2'];
+        $type = $_POST['types'];
 
         // Make sure, user doesn't exist
         $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername'");
@@ -28,7 +29,7 @@
             if ( $fpassword == $fpassword2 ) {
                 echo "USER CREATED!";
                 $fpassword = md5($fpassword);
-                if ( !$mysqli->query("INSERT INTO users (username,password) VALUES ('$fusername','$fpassword')" ) ) {
+                if ( !$mysqli->query("INSERT INTO users (username,password,type) VALUES ('$fusername','$fpassword','$type')" ) ) {
                     echo "insert failed";
                 }
             } else {
@@ -63,6 +64,13 @@
                     <div class="form-group">
                         <label >Repeat password</label>
                         <input type="password" class="form-control"  id="password2" name="password2"  placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="types">Τύπος χρήστη</label>
+                        <select name="types" id="dropwdowntypes" class="form-control">
+                            <option value="student">Φοιτητής</option>
+                            <option value="publisher">Εκδότης</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary float-right">Sign up</button>                              

@@ -4,25 +4,68 @@
     // Edit profile Script
     include("config.php");
 
-    if ( isset($_POST['edit'])  ) {
+    if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
         // Retrieve form data
         $username = $_POST['fuser'];
         $email = $_POST['femail'];
         $password1 = $_POST['fpass1'];
+        $password1 = md5($password1);
         $password2 = $_POST['fpass2'];
         $password3 = $_POST['fpass3'];
         $phone = $_POST['fphone'];
 
         // Update username
-        if ( isset($username) ) {
-        echo "working";
-        // $mysqli->query("UPDATE users SET username = '$username' WHERE  username={$_SESSION['user']} ");
-        echo "UPDATE users SET username = '$username' WHERE  username={$_SESSION['user']} ";
+        if ( !empty($username) ) {
+            if ( $mysqli->query("UPDATE `users` SET `username` = '$username' WHERE  `id` = {$_SESSION['id']} ") == TRUE ) {
+                $message = "<div class='alert alert-success'>Changes saved.</div>";
+                $_SESSION['user'] = $username;
+            } else {
+                $message = "<div class='alert alert-danger'>Changes not saved.</div>";
+            }
         }
+        // Update email
+        if ( !empty($email) ) {
+            if ( $mysqli->query("UPDATE `users` SET `email` = '$email' WHERE  `id` = {$_SESSION['id']} ") == TRUE ) {
+                $message = "<div class='alert alert-success'>Changes saved.</div>";
+            } else {
+                $message = "<div class='alert alert-danger'>Changes not saved.</div>";
+            }
+        
+        }
+        // Update password
+        if ( !empty($password1) && !empty($password2) && !empty($password3) ) {
+            $temp = $_SESSION['user'];
+            $results = $mysqli->query("SELECT * FROM users WHERE username='$temp' AND password='$password1' ");
+            if ( $results->num_rows > 0 ) {
+                // If the old password is correct
+                if ( $password2 == $password3 ) {
+
+                    $password2 = md5($password3);
+                    if ( $mysqli->query("UPDATE `users` SET `password` = '$password2' WHERE  `id` = {$_SESSION['id']} ") == TRUE ) {
+                        $message = "<div class='alert alert-success'>Changes saved.</div>";
+                    } else {
+                        $message = "<div class='alert alert-danger'>Changes not saved.</div>";
+                    }
+                }
+            } else {
+                $message = "<div class='alert alert-danger'>Wrong password.</div>";
+            }
+        
+        }
+        // Update telephone
+        if ( !empty($phone) ) {
+            if ( $mysqli->query("UPDATE `users` SET `telephone` = '$phone' WHERE  `id` = {$_SESSION['id']} ") == TRUE ) {
+                $message = "<div class='alert alert-success'>Changes saved.</div>";
+            } else {
+                $message = "<div class='alert alert-danger'>Phone not saved.</div>";
+            }
+        
+        }
+        
  
         // Update data on database
-        echo $username;
+        
 
     }
 
@@ -32,12 +75,15 @@
 
     <form method="post" action="" class="row">
 
+        <div class="form-group col-md-12 pt-2" id="errorLogin" >
+            <?php 
+                if(isset($message)){
+                    echo $message;
+                }
+            ?>
+        </div>
+
         <div class="col-md-6">
-
-            <div class="form-group" id="errorLogin" >
-                
-            </div>
-
 
             <div class="form-group">
                 <h5 class="mb-2">Όνομα χρήστη</h5>
