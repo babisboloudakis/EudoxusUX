@@ -3,7 +3,7 @@
     margin: 0px;
 }
 
-a {
+.footer a {
     color:white;
 }
 
@@ -11,7 +11,7 @@ footer {
     padding:0px;
 }
 
-nav {
+.navbar {
     box-shadow: 0px 0px 5px 1px #CCCCCC;
 }
 
@@ -31,7 +31,7 @@ nav {
     min-height: 400px;
     min-width: 100%;
     padding: 100px 0px 100px 0px;
-    background: rgba(244, 244, 244, 0.39);
+    background: rgba(12, 0, 0, 0.39);
 }
 
 
@@ -61,7 +61,7 @@ nav {
 }
 
 .fa:hover {
-    color:blue;
+    color:rgb(105, 105, 105);
 }
 
 .footer span {
@@ -69,4 +69,10 @@ nav {
     font-size:18px;
     color:white;
     margin-bottom: 30px;
+}
+
+/* BREADCRUMBS */
+
+.breadcrumb {
+    background-color: white;
 }
