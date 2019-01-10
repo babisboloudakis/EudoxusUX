@@ -4,10 +4,8 @@
     // Edit profile Script
     include("config.php");
 
-    echo "wtf";
     if ( isset($_POST['edit'])  ) {
-        echo "wow";
-        echo ' <script> alert("Form works!"); </script>';
+
         // Retrieve form data
         $username = $_POST['fuser'];
         $email = $_POST['femail'];
@@ -16,6 +14,13 @@
         $password3 = $_POST['fpass3'];
         $phone = $_POST['fphone'];
 
+        // Update username
+        if ( isset($username) ) {
+        echo "working";
+        // $mysqli->query("UPDATE users SET username = '$username' WHERE  username={$_SESSION['user']} ");
+        echo "UPDATE users SET username = '$username' WHERE  username={$_SESSION['user']} ";
+        }
+ 
         // Update data on database
         echo $username;
 
@@ -37,26 +42,26 @@
             <div class="form-group">
                 <h5 class="mb-2">Όνομα χρήστη</h5>
                 <label >Username </label>
-                <input type="text" id="user" name="fuser" class="form-control mb-2" placeholder="καινούριο username" required>        
+                <input type="text" id="user" name="fuser" class="form-control mb-2" placeholder="καινούριο username">        
             </div>
             <div class="form-group">
                 <h5 class="mb-2">Διεύθηνση E-mail</h5>
                 <label >Email </label>
-                <input type="text" id="user" name="femail" class="form-control mb-2" placeholder="Καίνούρια Διεύθηνση" required>    
+                <input type="text" id="user" name="femail" class="form-control mb-2" placeholder="Καίνούρια Διεύθηνση">    
             </div>
             <div class="form-group">
                 <h5 class="mb-2">Κωδικός Πρόσβασης</h5>
                 <label >Κωδικός </label>
-                <input type="text" id="user" name="fpass1" class="form-control mb-2" placeholder="Παλιός Κωδικός" required>    
+                <input type="text" id="user" name="fpass1" class="form-control mb-2" placeholder="Παλιός Κωδικός">    
                 <label >Καινούριος Κωδικός </label>
-                <input type="text" id="user" name="fpass2" class="form-control mb-2" placeholder="Καινούριος Κωδικός" required>
+                <input type="text" id="user" name="fpass2" class="form-control mb-2" placeholder="Καινούριος Κωδικός">
                 <label >Επιβεβαίωση Κωδικού </label>
-                <input type="text" id="user" name="fpass3" class="form-control mb-2" placeholder="Καινούριος Κωδικός" required>      
+                <input type="text" id="user" name="fpass3" class="form-control mb-2" placeholder="Καινούριος Κωδικός">      
             </div>
             <div class="form-group">
                 <h5 class="mb-2">Τηλέφωνο</h5>
                 <label >Καινούριο Τηλέφωνο </label>
-                <input type="text" id="user" name="fphone" class="form-control mb-2" placeholder="Καινούριο Τηλέφωνο" required>     
+                <input type="text" id="user" name="fphone" class="form-control mb-2" placeholder="Καινούριο Τηλέφωνο">     
             </div>
             
 
@@ -68,7 +73,7 @@
                 Συμπληρώστε τα πεδία τα οποία θέλετε να αλλάξετε, αφήνοντας κενά
                 τα υπόλοιπα. Στην συνέχεια πατήστε το κουμπί Αποθήκευση.
             </p>
-            <input type="button" name="edit" value="edit" class="btn btn-primary">
+            <input type="submit" name="edit" value="edit" class="btn btn-primary">
             <!-- <input type="button"  value="Καθαρισμός" class="btn btn-secondary"> -->
         </div>
 

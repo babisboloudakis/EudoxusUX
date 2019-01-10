@@ -16,8 +16,13 @@
         // Perform Database query
         $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername' AND password='$fpassword' ");
         if ( $results->num_rows > 0 ) {
+            $row = $results->fetch_assoc();
+
             $_SESSION['user'] = $fusername;
             $_SESSION['pass'] = $fpassword;
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['cart'] = array();
+
         } else {
             echo "<p class='text-danger text-center'> Please try again. </p>";
         }

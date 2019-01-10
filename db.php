@@ -14,6 +14,32 @@
         echo "Users Table creation failed!";
     }
 
+    if ( $mysqli->query("CREATE TABLE `students` (
+    `id` int(4) NOT NULL auto_increment,
+    `username` varchar(65) NOT NULL default '',
+    `password` varchar(65) NOT NULL default '',
+    `telephone` varchar(65) default'',
+    `type` varchar(65) default 'student',
+    PRIMARY KEY (`id`)
+    )" ) ) {
+        echo "Users Table created!";
+    } else {
+        echo "Users Table creation failed!";
+    }
+
+    if ( $mysqli->query("CREATE TABLE `publishers` (
+    `id` int(4) NOT NULL auto_increment,
+    `username` varchar(65) NOT NULL default '',
+    `password` varchar(65) NOT NULL default '',
+    `telephone` varchar(65) default'',
+    `type` varchar(65) default 'student',
+    PRIMARY KEY (`id`)
+    )" ) ) {
+        echo "Users Table created!";
+    } else {
+        echo "Users Table creation failed!";
+    }
+
     // Create books table
     if ( $mysqli->query("CREATE TABLE `books` (
     `id` int(4) NOT NULL auto_increment,
