@@ -31,7 +31,7 @@
                         // echo    "<a href='item.php?itemid=" .$row['id'] . "'>";
                         echo    '<img src="'. $row['img'] .'" class="card-img-top" alt="..." style="height:200px; width:100%;">';
                         echo        '<div class="card-body">'; 
-                        echo            '<h5 class="card-title">'. $row["title"] .'</h5>';
+                        echo            '<a href="announcement.php?id='.$row["id"].'"<h5 class="card-title">'. $row["title"] .'</h5></a>';
                         echo        '<p class="card-text text-muted">' . substr($row["text"],0,80) . '</p>';
                         echo        '</div>';
                         // echo    "</a>";
