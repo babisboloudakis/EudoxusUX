@@ -16,7 +16,9 @@ $text = $row['text'];
 
 ?>
 
-<div class="container">
+<div class="container-fluid">
+
+
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -28,12 +30,17 @@ $text = $row['text'];
 
     <div class="row mt-5">
 
-    <img src="<?php echo $img; ?>" alt="" style="max-width:300px; max-height:300px;">
+    <header style="background-image: url('<?php echo $img; ?>');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; padding: 100px 0px 100px 0px; width:100%;"> </header>
+    <!-- <img src="<?php echo $img; ?>" alt="" style="max-width:300px; max-height:300px;"> -->
     <br>
-    <br>
+    <div class="col-md-8 offset-md-2">
     <h4 class="display-4"><?php echo $title; ?></h4>
     <hr>
     <p><?php echo $text ?></p>
+    </div
 
     </div>
 </div>

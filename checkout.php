@@ -1,6 +1,5 @@
 <?php
 require("config.php");
-
 require("header.php");
 ?>
 
@@ -11,7 +10,7 @@ require("header.php");
     <h3 class="display-4">Τρέχουσα Δήλωση</h3>
     <hr>
     <form action="" method="post">
-        <input type="submit" class="btn btn-primary" value="Τελική Υποβολή">
+        <input type="submit" class="btn btn-primary" name="final" value="Τελική Υποβολή">
     </form>
     <hr>
 

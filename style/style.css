@@ -80,3 +80,11 @@ footer {
 .announcements {
     padding:40px;
 }
+
+#pin {
+    background-color:rgb(241, 241, 241);
+    color: black;
+    padding: 20px 70px;
+    font-size: 50px;
+    font-weight: bolder;
+}

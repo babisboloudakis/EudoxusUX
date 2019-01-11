@@ -25,7 +25,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+    <nav class="navbar navbar-expand-sm bg-white navbar-light">
         <!-- Navigation content -->
         <a class="navbar-brand" href="/"><img src="/img/logo.png" style="max-width:120px;" alt="Eudoxus"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -122,6 +122,7 @@
                         }
                     ?>
                 </li>
+
             </ul>
         </div>
 

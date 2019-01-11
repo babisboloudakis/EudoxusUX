@@ -73,6 +73,13 @@
         echo "Announcement creation failed!";
     }
 
+    if ( $mysqli->query("CREATE TABLE `eudoxus`.`reservations` ( `bid` INT NOT NULL , `sid` INT NOT NULL ) ENGINE = MyISAM;" ) ) {
+        echo "RESERVE Table created!";
+    } else {
+        echo "RESERVE creation failed!";
+    }
+
+
     // echo "Now creating dummy data..";
     // if ( $mysqli->query("INSERT INTO `users` ('username','password') VALUES ('admin', 'admin123')" ) )  {
     //     echo "Dummy data inserted successfully!";
@@ -157,4 +164,103 @@
     } else {
         echo "Dummy announcement failed..\n";
     }
+
+
+    // INSERT A COUPLE DUMMY BOOK UNIVERSITIES
+     if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('1','emp')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('1','ekpa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('1','papi')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('2','emp')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('3','emp')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('4','ekpa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('5','ekpa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('4','papi')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('5','opa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('6','emp')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('6','ekpa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('7','opa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('8','papi')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('7','papi')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('8','opa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('9','emp')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('9','ekpa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('9','opa')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    if( $mysqli->query("INSERT INTO books_universities (id,university) VALUES ('9','papi')") ) {
+        echo "Dummy announcement inserted successfully..\n";
+    } else {
+        echo "Dummy announcement failed..\n";
+    }
+    
 ?> 
