@@ -20,20 +20,15 @@
         // Make sure, user doesn't exist
         $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername'");
         if ( $results->num_rows > 0 ) {
-            echo "USER EXISTS!";
             
         } else {
-            echo "USER DOESNT EXIST!";
             // user doesn't exist
             // Confirm password
             if ( $fpassword == $fpassword2 ) {
-                echo "USER CREATED!";
                 $fpassword = md5($fpassword);
                 if ( !$mysqli->query("INSERT INTO users (username,password,type) VALUES ('$fusername','$fpassword','$type')" ) ) {
-                    echo "insert failed";
                 }
             } else {
-                echo "passwords dont match";
             }
         }
     }

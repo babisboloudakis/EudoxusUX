@@ -38,11 +38,11 @@ echo '	<div class="col-md-12 mt-3 justify-content-center bg-light">
                 <div class="form-group">
                 <label>Σχολή</label>
                 <select id="inputState" class="form-control">
-                    <option selected>Όλες</option>
-                    <option>BMW</option>
-                    <option>Audi</option>
-                    <option>Maruti</option>
-                    <option>Tesla</option>
+                    <option value="any" selected>Όλες</option>
+                    <option value="ekpa" >ΕΚΠΑ</option>
+                    <option value="emp">ΕΜΠ</option>
+                    <option value="opa">ΟΠΑ</option>
+                    <option value="papi">ΠΑΠΠΕΙ</option>
                     </select>
                 </div>
             </div>
