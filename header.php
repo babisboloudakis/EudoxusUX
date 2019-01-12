@@ -27,20 +27,20 @@
 
     <nav class="navbar navbar-expand-sm bg-white navbar-light">
         <!-- Navigation content -->
-        <a class="navbar-brand" href="/"><img src="/img/logo.png" style="max-width:120px;" alt="Eudoxus"></a>
+        <a class="navbar-brand" href="/"><img src="/img/logo.png" style="max-width:100px;" alt="Eudoxus"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mr-5">
+            <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item active mr-3">
+                <li class="nav-item active px-1">
                     <a class="nav-link" href="/">Αρχική </a>
                 </li>
 
-                <li class="nav-item dropdown mr-3 ">
+                <li class="nav-item dropdown px-1">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Φοιτητές
@@ -52,7 +52,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown mr-3">
+                <li class="nav-item dropdown px-1">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Εκδότες
@@ -65,7 +65,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown mr-3">
+                <li class="nav-item dropdown px-1">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Γραμματείες
@@ -75,7 +75,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown mr-3">
+                <li class="nav-item dropdown px-1">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Σημεία Διανομής
@@ -87,7 +87,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown mr-3">
+                <li class="nav-item dropdown px-1">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Βιβλιοθήκες
@@ -99,13 +99,16 @@
                 </li>
 
 
-                
+                <form class="form-inline px-1" method="get" action="search.php">
+                    <input class="form-control" type="search" name="term" placeholder="Αναζήτηση" aria-label="Αναζήτηση" style="width:150px; height:25px;">
+                    <button class="btn btn-outline-success " type="submit"> <i class="fa fa-search" style="color:green; height:10px; max-width:30px;" ></i></button>
+                </form>                
 
                 <li class="nav-item">
                     <!-- <a href="#"><i class="fa fa-user"></i></a> -->
                     <?php 
                         if ( isset( $_SESSION['user']) ) {
-                            echo '<li class="nav-item dropdown mr-3">
+                            echo '<li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Καλωσήρθες ' .$_SESSION["user"]. ' !
@@ -122,6 +125,8 @@
                         }
                     ?>
                 </li>
+
+                
 
             </ul>
         </div>
