@@ -58,8 +58,8 @@
                     <div class="form-group">
                         <label for="types">Θεματική Κατηγορία</label>
                         <select name="types" id="dropwdowntypes" class="form-control">
-                            <option value="student">Programming</option>
-                            <option value="publisher">Economics</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Economics">Economics</option>
                         </select>
                     </div>
                     <div class="form-group">
