@@ -80,7 +80,7 @@ if ( $results->num_rows > 0 ) {
         // Display single book
         echo '<div class="card col-md-3 m-5" >';
         echo    "<a href='item.php?itemid=" .$row['id'] . "'>";
-        echo    '<img src="" class="card-img-top" alt="..." style="height:250px;">';
+        echo    '<img src="'.$row["image"].'" class="card-img-top" alt="..." style="height:250px;">';
         echo        '<div class="card-body">'; 
         echo            '<h5 class="card-title">'. $row["name"] .'</h5>';
         echo        '<p class="card-text text-muted">' . $row["author"] . '</p> <hr>';

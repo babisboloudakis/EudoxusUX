@@ -1,5 +1,6 @@
 <?php 
     include("session.php");
+    $_SESSION['came_from'] = $_SERVER['REQUEST_URI'];
 ?>
 
 <html>

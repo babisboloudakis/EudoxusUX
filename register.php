@@ -26,12 +26,23 @@
             // Confirm password
             if ( $fpassword == $fpassword2 ) {
                 $fpassword = md5($fpassword);
-                if ( !$mysqli->query("INSERT INTO users (username,password,type) VALUES ('$fusername','$fpassword','$type')" ) ) {
-                }
-            } else {
-            }
+                if ( $mysqli->query("INSERT INTO users (username,password,type) VALUES ('$fusername','$fpassword','$type')" ) ) {
+                    $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername' AND password='$fpassword' ");
+                    if ( $results->num_rows > 0 ) {
+                        $row = $results->fetch_assoc();
+
+                        $_SESSION['user'] = $fusername;
+                        $_SESSION['pass'] = $fpassword;
+                        $_SESSION['id'] = $row['id'];
+                        $_SESSION['cart'] = array();
+                        // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
+
+                    } 
+                } 
         }
     }
+
+}
 
 ?>
 
@@ -77,4 +88,4 @@
          </div>
       </div>
 
-<?php echo file_get_contents("html/footer.html") ?>
+<?php echo file_get_contents("html/footer.html"); ?>

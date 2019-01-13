@@ -23,7 +23,7 @@ foreach ( $_SESSION['cart'] as $book ) {
     } else {
         $row = $result->fetch_assoc();
         echo '<div class="row">
-            <img src="" alt="image" style="height:80px; width:80px;" class="col-md-2"></img>
+            <img src="'.$row["image"].'" alt="image" style="height:80px; width:80px;" class="col-md-2"></img>
             <div class="col-md-2 offset-md-1 mt-4">'.$row['name'].'</div>
             <div class="col-md-2 offset-md-1 mt-4">'.$row['author'].'</div>
             <input type="submit" style="width:10px; border-radius:100px;" class="btn btn-danger btn-sm col-md-1 offset-md-2 mt-2" value="Χ">

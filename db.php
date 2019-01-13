@@ -96,47 +96,47 @@
 
 
     // INSERT A COUPLE OF BOOKS
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming','img/uploads/1.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Java for dummies','John Doe','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Java for dummies','John Doe','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming','img/uploads/2.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Basic Accounting','Nick Doe','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Economics')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Basic Accounting','Nick Doe','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Economics','img/uploads/3.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Intro to Python3','Linus','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming','img/uploads/4.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('UI/UX Design','Nielsen','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Design','img/uploads/5.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Multi-variable Calculus','Gauss','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Math','img/uploads/6.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Linear Algebra','Strang','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Math','img/uploads/7.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Photoshop for Dummies','For Dummies','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Design','img/uploads/8.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";
     }
-    if ( $mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('Intro to C++','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming')") ) {
+    if ( $mysqli->query("INSERT INTO books (name,author,description,category,image) VALUES ('Object Oriented Programming','Stoustrup','Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus totam quasi, sit cumque unde ab minus numquam nostrum commodi doloribus!','Programming','img/uploads/9.jpeg')") ) {
         echo "Dummy book inserted successfully..\n";
     } else {
         echo "Dummy data failed..\n";

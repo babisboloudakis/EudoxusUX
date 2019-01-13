@@ -1,6 +1,5 @@
 
 <?php
-    include("header.php");
     include("config.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
@@ -22,11 +21,14 @@
             $_SESSION['pass'] = $fpassword;
             $_SESSION['id'] = $row['id'];
             $_SESSION['cart'] = array();
+            // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
+            // header("Refresh:0");
 
         } else {
             echo "<p class='text-danger text-center'> Please try again. </p>";
         }
     }
+        require("header.php");
 ?>
 
     <!-- container for login page -->

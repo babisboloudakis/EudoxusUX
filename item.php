@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $_SESSION['cart'] = array_diff( $_SESSION['cart'], array($itemid) );
     }
-    print_r($_SESSION['cart']); // for debug
+    // print_r($_SESSION['cart']); // for debug
 }
 
 ?>
@@ -37,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </ol>
     </nav>
 
-    <div class="row mt-5">
+    <div class="row my-5">
 
-        <div class="litem col-md-6">
-            <img src="" alt="IMg here">
+        <div class="litem col-md-4">
+            <img src="<?php echo $bimg ?>" alt="IMg here" style="max-width:300px; height:400px;">
         </div>
 
-        <div class="ritem col-md6">
+        <div class="ritem col-md-8">
             <h2 class="display-3"> <?php echo $bname ?></h2>
             <p class="text-muted"> <?php echo $bauthor ?></p>
             <hr>
