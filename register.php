@@ -8,17 +8,17 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
-        $fusername = $_POST['username'];
+        $femail = $_POST['email'];
         $fpassword = $_POST['password'];
         // Filter username and password for SQL injection
-        $fusername = mysqli_real_escape_string($mysqli,$fusername);
+        $femail = mysqli_real_escape_string($mysqli,$femail);
         $fpassword = mysqli_real_escape_string($mysqli,$fpassword);
         // Confirm password field
         $fpassword2 = $_POST['password2'];
         $type = $_POST['types'];
 
         // Make sure, user doesn't exist
-        $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername'");
+        $results = $mysqli->query("SELECT id FROM users WHERE email='$femail'");
         if ( $results->num_rows > 0 ) {
             
         } else {
@@ -26,12 +26,12 @@
             // Confirm password
             if ( $fpassword == $fpassword2 ) {
                 $fpassword = md5($fpassword);
-                if ( $mysqli->query("INSERT INTO users (username,password,type) VALUES ('$fusername','$fpassword','$type')" ) ) {
-                    $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername' AND password='$fpassword' ");
+                if ( $mysqli->query("INSERT INTO users (email,password,type) VALUES ('$femail','$fpassword','$type')" ) ) {
+                    $results = $mysqli->query("SELECT id FROM users WHERE email='$femail' AND password='$fpassword' ");
                     if ( $results->num_rows > 0 ) {
                         $row = $results->fetch_assoc();
 
-                        $_SESSION['user'] = $fusername;
+                        $_SESSION['email'] = $femail;
                         $_SESSION['pass'] = $fpassword;
                         $_SESSION['id'] = $row['id'];
                         $_SESSION['cart'] = array();
@@ -60,8 +60,8 @@
                     <div class="form-group" id="errorLogin" >
                     </div>
                     <div class="form-group">
-                        <label >Username</label>
-                        <input type="text" id="user" name="username" class="form-control" placeholder="Username" required>    
+                        <label >E-mail</label>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="E-mail" required>    
                     </div>
                     <div class="form-group">
                         <label >Password</label>

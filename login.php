@@ -1,23 +1,23 @@
 
 <?php
-    include("config.php");
-
+    require("config.php");
+    require("header.php");
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
         // Read user credentials
-        $fusername = $_POST['username'];
+        $femail = $_POST['email'];
         $fpassword = $_POST['password'];
         // Filter username and password for SQL injection
-        $fusername = mysqli_real_escape_string($mysqli,$fusername);
+        $femail = mysqli_real_escape_string($mysqli,$femail);
         $fpassword = mysqli_real_escape_string($mysqli,$fpassword);
         // Hash password using md5 Encryption
         $fpassword = md5($fpassword);
         // Perform Database query
-        $results = $mysqli->query("SELECT id FROM users WHERE username='$fusername' AND password='$fpassword' ");
+        $results = $mysqli->query("SELECT id FROM users WHERE email='$femail' AND password='$fpassword' ");
         if ( $results->num_rows > 0 ) {
             $row = $results->fetch_assoc();
 
-            $_SESSION['user'] = $fusername;
+            $_SESSION['email'] = $femail;
             $_SESSION['pass'] = $fpassword;
             $_SESSION['id'] = $row['id'];
             $_SESSION['cart'] = array();
@@ -28,7 +28,6 @@
             echo "<p class='text-danger text-center'> Please try again. </p>";
         }
     }
-        require("header.php");
 ?>
 
     <!-- container for login page -->
@@ -42,15 +41,15 @@
                     <div class="form-group" id="errorLogin" >
                     </div>
                     <div class="form-group">
-                        <label >Username</label>
-                        <input type="text" id="user" name="username" class="form-control" placeholder="Username" required>    
+                        <label >E-mail</label>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="E-mail" required>    
                     </div>
                     <div class="form-group">
                         <label >Password</label>
                         <input type="password" class="form-control"  id="password" name="password"  placeholder="Password" required>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary float-right">Submit</button>                              
+                        <button type="submit" class="btn btn-primary float-right">Σύνδεση</button>                              
                     </div>
                </form>
                <br>

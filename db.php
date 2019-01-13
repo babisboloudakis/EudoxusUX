@@ -3,7 +3,6 @@
     // Create user table
     if ( $mysqli->query("CREATE TABLE `users` (
     `id` int(4) NOT NULL auto_increment,
-    `username` varchar(65) NOT NULL default '',
     `email` varchar(65) not NULL default '',
     `password` varchar(65) NOT NULL default '',
     `telephone` varchar(65) default'',

@@ -1,6 +1,6 @@
 <?php
     require("session.php");
-    if ( isset($_SESSION['user']) && isset($_SESSION['pass']) ) {
+    if ( isset($_SESSION['email']) && isset($_SESSION['pass']) ) {
         // authenticated
     } else {
         // need to login first

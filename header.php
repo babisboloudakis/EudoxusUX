@@ -108,11 +108,11 @@
                 <li class="nav-item">
                     <!-- <a href="#"><i class="fa fa-user"></i></a> -->
                     <?php 
-                        if ( isset( $_SESSION['user']) ) {
+                        if ( isset( $_SESSION['email']) ) {
                             echo '<li class="nav-item dropdown ">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        Καλωσήρθες ' .$_SESSION["user"]. ' !
+                        '.$_SESSION["email"] .';
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="editProfile.php">Επεξεργασία Προφίλ</a>
