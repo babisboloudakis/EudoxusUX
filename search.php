@@ -22,8 +22,10 @@ $results = $mysqli->query("SELECT * FROM books WHERE name LIKE '%" .$search_term
                 
                     $row = $results->fetch_assoc();
                     echo '
-                    <img src="" alt="image" style="height:80px; width:80px;" class="col-md-2"></img>
-                    <div class="col-md-2 offset-md-1 mt-4">'.$row['name'].'</div>
+                    <img src="'.$row["image"].'" alt="image" style="height:80px; width:80px;" class="col-md-2"></img>
+                    <a href="item.php?itemid='.$row['id'].'">
+                    <div class="col-md-2 offset-md-1 mt-4">'.$row['name'].'</div>    
+                    </a>
                     <div class="col-md-2 offset-md-1 mt-4">'.$row['author'].'</div>
                     <hr class="col-md-12">';
                     
