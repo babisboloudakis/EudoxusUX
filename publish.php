@@ -1,10 +1,8 @@
 <?php
-    include("header.php");
-?>    
 
-<?php
-
-    include("config.php");
+    require("header.php");
+    require("authenticate.php");
+    require("config.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
@@ -17,6 +15,8 @@
         $description = mysqli_real_escape_string($mysqli,$description);
         // Type field
         $type = $_POST['types'];
+        //  Session id
+        $pid = $_SESSION['id'];
 
         // Make sure, book doesn't exist
         $results = $mysqli->query("SELECT id FROM books WHERE name='$title' AND author='$author'");
@@ -24,7 +24,7 @@
             
         } else {
             // book doesn't exist
-            if ( !$mysqli->query("INSERT INTO books (name,author,description,category) VALUES ('$title','$author','$description','$type')" ) ) {
+            if ( !$mysqli->query("INSERT INTO books (name,author,description,category,pid) VALUES ('$title','$author','$description','$type','$pid')" ) ) {
             }
         }
     }
@@ -38,7 +38,7 @@
             <div class="col-5 rounder p-3 mb-5 mt-5 bg-white">
                 <h3>Δημοσίευση Συγγράμματος</h3>
                 <hr>
-                <p>Something here?
+                <p>Εισάγετε τα στοιχεία του Συγγράμαματος
                 </p>
                 <form action = "" method = "post" class="login-form" >
                     <div class="form-group" id="errorLogin" >
@@ -64,7 +64,7 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary float-right">Δημοσίευση</button>
-                        <button type="reset" class="btn btn-danger float-left">Εκαθάριση</button>                              
+                        <button type="reset" class="btn btn-secondary float-left">Εκαθάριση</button>                              
                     </div>
                </form>
             </div>

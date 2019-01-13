@@ -43,6 +43,7 @@
     `image` varchar(65) default'',
     `description` varchar(600) default'',
     `category` varchar(65),
+    `pid` int(4) NOT NULL default -1,
     PRIMARY KEY (`id`)
     )" ) ) {
         echo "Books Table created!";

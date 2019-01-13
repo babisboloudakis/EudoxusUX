@@ -13,14 +13,16 @@
         // Hash password using md5 Encryption
         $fpassword = md5($fpassword);
         // Perform Database query
-        $results = $mysqli->query("SELECT id FROM users WHERE email='$femail' AND password='$fpassword' ");
+        $results = $mysqli->query("SELECT * FROM users WHERE email='$femail' AND password='$fpassword' ");
         if ( $results->num_rows > 0 ) {
             $row = $results->fetch_assoc();
 
             $_SESSION['email'] = $femail;
             $_SESSION['pass'] = $fpassword;
             $_SESSION['id'] = $row['id'];
+            $_SESSION['type'] = $row['type'];            
             $_SESSION['cart'] = array();
+
             // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
             // header("Refresh:0");
 
