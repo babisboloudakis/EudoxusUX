@@ -50,9 +50,10 @@
                         Φοιτητές
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        
+                        <a class="dropdown-item" href="browse.php">Εξερεύνηση Συγγραμάτων</a>
+                        <a class="dropdown-item" href="checkout.php">Δήλωση Συγγραμάτων</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="helps.php">Βοήθεια</a>
                     </div>
                 </li>
 
@@ -62,10 +63,11 @@
                         Εκδότες
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="bookmanagement.php">Διαχείρηση Συγγραμάτων</a>
+                        <a class="dropdown-item" href="publish.php">Καταχώρηση Συγγράματος</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="helpp.php">Βοήθεια</a>
+                        
                     </div>
                 </li>
 
@@ -119,8 +121,6 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="editProfile.php">Επεξεργασία Προφίλ</a>
-                        <a class="dropdown-item" href="checkout.php">Τρέχουσα Δήλωση</a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout.php">Αποσύνδεση</a>
                     </div>
                 </li> ' ;

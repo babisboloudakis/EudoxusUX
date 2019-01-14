@@ -3,6 +3,7 @@ require("config.php");
 require("session.php");
 // If the user has already a submitted application, redirect him
 // on final.php page where he can see the submitted books
+require("authenticate.php");
 $sessionid = $_SESSION['id'];
 $already = $mysqli->query("SELECT * FROM reservations WHERE sid=$sessionid ");
 if ( $already->num_rows > 0 ) {
