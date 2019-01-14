@@ -1,5 +1,6 @@
 <?php 
     include("session.php");
+    
     $_SESSION['came_from'] = $_SERVER['REQUEST_URI'];
     if ( !isset( $_SESSION['cart'] ) ) {
         $_SESSION['cart'] = array();

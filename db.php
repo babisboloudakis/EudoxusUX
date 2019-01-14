@@ -17,7 +17,6 @@
     if ( $mysqli->query("CREATE TABLE `students` (
     `id` int(4) NOT NULL,
     `university` varchar(65) NOT NULL default '',
-    `semester` varchar(65) NOT NULL default '',
     PRIMARY KEY (`id`)
     )" ) ) {
         echo "Students Table created!";
@@ -80,17 +79,11 @@
     }
 
 
-    // echo "Now creating dummy data..";
-    // if ( $mysqli->query("INSERT INTO `users` ('username','password') VALUES ('admin', 'admin123')" ) )  {
-    //     echo "Dummy data inserted successfully!";
-    // } else {
-    //     echo "Failed to insert dummy data";
-    // }
+    $mysqli->query("INSERT INTO `users` (id,email,password,type,telephone) VALUES (0,'student@di.uoa.gr','202cb962ac59075b964b07152d234b70','student','210-21021010')" );
+    $mysqli->query("INSERT INTO `students` (id,university) VALUES (0,'UOA')" );
 
-
-
-
-
+    $mysqli->query("INSERT INTO `users` (id,email,password,type,telephone) VALUES (0,'publisher@di.uoa.gr','202cb962ac59075b964b07152d234b70','publisher','210-21021011')" );
+    $mysqli->query("INSERT INTO `publishers` (id,vat) VALUES (0,'322')");
 
 
 

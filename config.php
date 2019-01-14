@@ -1,7 +1,7 @@
 <?php
     // Config like with options required in most files
     $server = "localhost:3307";
-    $db = "eudoxus";
+    $db = "sdi1500103";
     $db_user = "root";
     $db_password = "";
     // Connect to the database

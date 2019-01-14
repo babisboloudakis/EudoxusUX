@@ -1,9 +1,10 @@
 
 <?php
     require("config.php");
-    require("header.php");
-    if($_SERVER["REQUEST_METHOD"] == "POST" ) {
+    require("session.php");
 
+    if($_SERVER["REQUEST_METHOD"] == "POST" ) {
+        
         // Read user credentials
         $femail = $_POST['email'];
         $fpassword = $_POST['password'];
@@ -16,20 +17,22 @@
         $results = $mysqli->query("SELECT * FROM users WHERE email='$femail' AND password='$fpassword' ");
         if ( $results->num_rows > 0 ) {
             $row = $results->fetch_assoc();
-
+            
             $_SESSION['email'] = $femail;
             $_SESSION['pass'] = $fpassword;
             $_SESSION['id'] = $row['id'];
             $_SESSION['type'] = $row['type'];            
-
-            // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
-
             
+            header("Location: ". $_SESSION['came_from']);
+    
         } else {
             echo "<p class='text-danger text-center'> Please try again. </p>";
         }
     }
-?>
+
+    require("header.php");
+
+    ?>
 
     <!-- container for login page -->
       <div class="container" >

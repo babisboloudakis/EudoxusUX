@@ -86,7 +86,7 @@
 
     <form method="post" action="" class="row">
 
-        <div class="form-group col-md-12 pt-2" id="errorLogin" >
+        <div class="form-group col-md-12 mt-4" id="errorLogin" >
             <?php 
                 if(isset($message)){
                     echo $message;

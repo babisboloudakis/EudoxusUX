@@ -1,10 +1,7 @@
 <?php
-    include("header.php");
-?>    
 
-<?php
-
-    include("config.php");
+    require("config.php");
+    require("session.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
@@ -48,6 +45,9 @@
     }
 
 }
+
+require("header.php");
+
 
 ?>
 

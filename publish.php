@@ -25,7 +25,8 @@
             
         } else {
             // book doesn't exist
-            if ( !$mysqli->query("INSERT INTO books (name,author,description,category,pid) VALUES ('$title','$author','$description','$type','$pid')" ) ) {
+            if ( $mysqli->query("INSERT INTO books (name,author,description,category,pid) VALUES ('$title','$author','$description','$type','$pid')" ) ) {
+                $message = "<div class='alert alert-success'>Το Σύγγραμα καταχωρήθηκε επιτυχώς!</div>";
             }
         }
     }
@@ -41,6 +42,13 @@
                 <hr>
                 <p>Εισάγετε τα στοιχεία του Συγγράμαματος
                 </p>
+                <div class="feedback">
+                <?php 
+                    if(isset($message)){
+                        echo $message;
+                    }
+                ?>
+                </div>
                 <form action = "" method = "post" class="login-form" >
                     <div class="form-group" id="errorLogin" >
                     </div>
@@ -66,8 +74,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary float-right">Δημοσίευση</button>
-                        <button type="reset" class="btn btn-secondary float-left">Εκαθάριση</button>                              
+                        <button type="reset" class="btn btn-secondary ">Εκαθάριση</button>                              
+                        <button type="submit" class="btn btn-primary ">Δημοσίευση</button>
                     </div>
                </form>
             </div>

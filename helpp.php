@@ -49,3 +49,5 @@
             </div>
         </div>
     </div>
+
+    <?php echo file_get_contents("html/footer.html") ?>
