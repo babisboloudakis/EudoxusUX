@@ -14,7 +14,7 @@
         $author = mysqli_real_escape_string($mysqli,$author);
         $description = mysqli_real_escape_string($mysqli,$description);
         // Type field
-        $type = $_POST['types'];
+        $type = $_POST['categ'];
         //  Session id
         $pid = $_SESSION['id'];
 
@@ -55,11 +55,13 @@
                         <label >Σύντομη Περιγραφή</label>
                         <input type="text" class="form-control" name="description"  placeholder="Περιγραφή" required>
                     </div>
-                    <div class="form-group">
-                        <label for="types">Θεματική Κατηγορία</label>
-                        <select name="types" id="dropwdowntypes" class="form-control">
-                            <option value="Programming">Programming</option>
-                            <option value="Economics">Economics</option>
+                    <div class="form-group ">
+                    <label>Κατηγορία</label>
+                        <select id="inputState " name="categ" class="form-control">
+                        <option value="Programming" >Programming</option>
+                        <option value="Math" >Math</option>
+                        <option value="Design" >Design</option>
+                        <option value="Economics" >Economics</option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -1,10 +1,13 @@
 <?php
 require("config.php");
-require("header.php");
-
+require("session.php");
 // If the user has already a submitted application, redirect him
 // on final.php page where he can see the submitted books
-
+$sessionid = $_SESSION['id'];
+$already = $mysqli->query("SELECT * FROM reservations WHERE sid=$sessionid ");
+if ( $already->num_rows > 0 ) {
+    header("Location: /final.php");
+}
 
 // If user submits the reservations
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -13,10 +16,15 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         // Insert each reservation into the database
         $id = $_SESSION['id'];
         if ( !$mysqli->query("INSERT INTO reservations (`bid`,`sid`) VALUES ('$r','$id')" ) ) {
-
+            
         } 
     }
+
+    header("Refresh:0");
 }
+
+require("header.php");
+
 
 ?>
 

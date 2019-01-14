@@ -11,7 +11,7 @@ $results = $mysqli->query("SELECT * FROM books WHERE name LIKE '%" .$search_term
 
 <!-- HTML TEMPLATE -->
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
         <h5 class="col-md-12 mt-5">Αποτελέσματα Αναζήτησης:</h5>
         <p class="text-muted col-md-12">Συνολικός αριθμός αποτελεσμάτων: <?php echo $results->num_rows; ?></p>
         <hr class="col-md-12">
@@ -22,16 +22,16 @@ $results = $mysqli->query("SELECT * FROM books WHERE name LIKE '%" .$search_term
                 
                     $row = $results->fetch_assoc();
                     echo '
-                    <img src="'.$row["image"].'" alt="image" style="height:80px; width:80px;" class="col-md-2"></img>
+                    <img src="'.$row["image"].'" alt="image" style="height:80px; width:80px;" class="col-md-2">
                     <a href="item.php?itemid='.$row['id'].'">
-                    <div class="col-md-2 offset-md-1 mt-4">'.$row['name'].'</div>    
+                    <div class="col-md-3">'.$row['name'].'</div>    
                     </a>
-                    <div class="col-md-2 offset-md-1 mt-4">'.$row['author'].'</div>
+                    <div class="col-md-3">'.$row['author'].'</div>
                     <hr class="col-md-12">';
                     
                 }
             } else {
-                echo "Δεν βρέθηκαν αποτελέσματα αναζήτησης";
+                echo "<p class='my-5'>Δεν βρέθηκαν αποτελέσματα αναζήτησης</p>";
             }
                 
         ?>

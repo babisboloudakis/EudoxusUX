@@ -21,7 +21,6 @@
             $_SESSION['pass'] = $fpassword;
             $_SESSION['id'] = $row['id'];
             $_SESSION['type'] = $row['type'];            
-            $_SESSION['cart'] = array();
 
             // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
             // header("Refresh:0");

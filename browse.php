@@ -48,7 +48,7 @@ echo '	<div class="col-md-12 mt-3 justify-content-center bg-light">
             </div>
             <div class="col-md-4 mt-5">
                 <div class="form-group">
-                <input type="submit" value="Αναζήτηση" class="btn btn-primary">
+                <input type="submit" value="Αναζήτηση" name="filter" class="btn btn-primary">
                 </div>
             </div>
             </div>
@@ -57,7 +57,8 @@ echo '	<div class="col-md-12 mt-3 justify-content-center bg-light">
 
 
 $results = $mysqli->query("SELECT * FROM books");
-if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['filter']) ) {
     $selectedcat = $_POST['categ'];
     $selecteduniv = $_POST['univ'];
     if ( $selectedcat != "any" &&  $selecteduniv != "any" ) {
@@ -69,7 +70,16 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     else if ( $selecteduniv != "any" ) {
         $results = $mysqli->query("SELECT * FROM books, books_universities WHERE books_universities.id = books.id and books_universities.university='$selecteduniv'  ");
     }
+} else if ( $_SERVER['REQUEST_METHOD'] == 'POST' && ( isset($_POST['add']) || isset($_POST['del']) ) ) {
+    $sid = $_POST['selectedId'];
+    if ( !in_array($sid,$_SESSION['cart']) ) {
+        // Don't add a book multiple times in array
+        array_push( $_SESSION['cart'], $sid );
+    } else {
+        $_SESSION['cart'] = array_diff( $_SESSION['cart'], array($sid) );
+    }
 }
+
 
 if ( $results->num_rows > 0 ) {
 
@@ -77,6 +87,7 @@ if ( $results->num_rows > 0 ) {
     for ($i=0; $i < $results->num_rows; $i++) { 
         
         $row = $results->fetch_assoc();
+        $itemid = $row['id'];
         // Display single book
         echo '<div class="card col-md-3 m-5" >';
         echo    "<a href='item.php?itemid=" .$row['id'] . "'>";
@@ -84,7 +95,17 @@ if ( $results->num_rows > 0 ) {
         echo        '<div class="card-body">'; 
         echo            '<h5 class="card-title">'. $row["name"] .'</h5>';
         echo        '<p class="card-text text-muted">' . $row["author"] . '</p> <hr>';
-        echo        '<a href="#" class="btn btn-primary">Δήλωση Συγγράματος</a>';
+        if ( !in_array($itemid,$_SESSION['cart']) ) {
+            echo '<form action="" method="post">
+                    <input type="hidden" name="selectedId" value="'. $row['id'] .'"/>
+                    <input type="submit" value="Δήλωση Συγγράματος" name="add" class="btn btn-primary">
+                    </form>';
+        } else {
+            echo '<form action="" method="post">
+                    <input type="hidden" name="selectedId" value="'. $row['id'] .'"/>
+                    <input type="submit" value="Αφαίρεση Συγγράματος" name="del" class="btn btn-warning">
+                    </form>';
+        }
         echo        '</div>';
         echo    "</a>";
         echo    '</div>';

@@ -15,7 +15,7 @@ $bdesc = $row['description'];
 $bimg = $row['image'];
 
 // When the add button is clicked
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' ) {
     if ( !in_array($itemid,$_SESSION['cart']) ) {
         // Don't add a book multiple times in array
         array_push( $_SESSION['cart'], $itemid );
@@ -23,8 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['cart'] = array_diff( $_SESSION['cart'], array($itemid) );
     }
     // print_r($_SESSION['cart']); // for debug
-}
-
+} 
 ?>
 
 <div class="container">
