@@ -38,7 +38,7 @@
                         $userid = $row['id'];
                         $mysqli->query("INSERT INTO $typ (id) VALUES ('$userid')");
                         
-                        // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);       
+                        header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
                     }
                 } 
         }

@@ -38,6 +38,5 @@ $results = $mysqli->query("SELECT * FROM books WHERE name LIKE '%" .$search_term
     </div>
 </div>
 
-
 <!-- FOOTER -->
 <?php echo file_get_contents("html/footer.html"); ?>

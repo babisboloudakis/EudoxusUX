@@ -1,5 +1,5 @@
 <?php
-    // Config like with options required in most files
+    // Setting for mysql Database
     $server = "localhost:3307";
     $db = "sdi1500103";
     $db_user = "root";

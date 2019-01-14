@@ -10,10 +10,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 require("header.php");
 
-
 ?>
-
-
 
 <div class="container">
 <div class="row justify-content-center">
@@ -47,11 +44,6 @@ require("header.php");
     
         <a href='publish.php' class="btn btn-success">Προσθήκη Συγγράματος</a>
     <hr>
-
-    
-
-
-
 
 </div>
 </div>  

@@ -1,7 +1,7 @@
+<!-- Header.php contains data about the navigation menu -->
+<!-- Also contains links, and meta-data about the website -->
 <?php 
-    include("session.php");
-    
-    $_SESSION['came_from'] = $_SERVER['REQUEST_URI'];
+    include("session.php");    
     if ( !isset( $_SESSION['cart'] ) ) {
         $_SESSION['cart'] = array();
     }

@@ -1,8 +1,6 @@
 <?php
-
 require("header.php");
 require("config.php");
-
 ?>
 
 <nav aria-label="breadcrumb">
@@ -13,8 +11,7 @@ require("config.php");
 </nav>
 
 <?php
-
-
+// Filter form
 echo '<div class="container-fluid"><div class="row">';
 
 echo '	<div class="col-md-12 mt-3 justify-content-center bg-light">
@@ -54,13 +51,13 @@ echo '	<div class="col-md-12 mt-3 justify-content-center bg-light">
             </div>
             </form>
         </div>';
-
-
+// Get all books
 $results = $mysqli->query("SELECT * FROM books");
-
+// If the user clicked the filter button
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['filter']) ) {
     $selectedcat = $_POST['categ'];
     $selecteduniv = $_POST['univ'];
+    // Execute sql query based on user selection
     if ( $selectedcat != "any" &&  $selecteduniv != "any" ) {
         $results = $mysqli->query("SELECT * FROM books, books_universities WHERE books_universities.id = books.id and category='$selectedcat' and books_universities.university='$selecteduniv'  ");
     }
@@ -71,18 +68,16 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['filter']) ) {
         $results = $mysqli->query("SELECT * FROM books, books_universities WHERE books_universities.id = books.id and books_universities.university='$selecteduniv'  ");
     }
 } else if ( $_SERVER['REQUEST_METHOD'] == 'POST' && ( isset($_POST['add']) || isset($_POST['del']) ) ) {
+    // If the user clicked an add or remove button
     $sid = $_POST['selectedId'];
     if ( !in_array($sid,$_SESSION['cart']) ) {
-        // Don't add a book multiple times in array
         array_push( $_SESSION['cart'], $sid );
     } else {
         $_SESSION['cart'] = array_diff( $_SESSION['cart'], array($sid) );
     }
 }
 
-
 if ( $results->num_rows > 0 ) {
-
     // Display product grid
     for ($i=0; $i < $results->num_rows; $i++) { 
         
@@ -119,10 +114,5 @@ if ( $results->num_rows > 0 ) {
 echo '</div></div>';
 
 ?>
-
-
-
-
-
 
 <?php echo file_get_contents("html/footer.html"); ?>

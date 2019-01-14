@@ -1,8 +1,8 @@
 <?php
+    require("config.php");
     require("authenticate.php");
-    include("header.php");
+    require("header.php");
     // Edit profile Script
-    include("config.php");
 
     if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
@@ -54,6 +54,7 @@
         
         }
 
+        // User type specific data
         if ( $_SESSION['type'] == 'publisher' ) {
             $vat = $_POST['fvat'];
             if ( !empty($vat)) {
@@ -72,11 +73,7 @@
                     $message = "<div class='alert alert-danger'>University not saved.</div>";
                 }
             }
-        }
-        
- 
-        // Update data on database
-        
+        }        
 
     }
 

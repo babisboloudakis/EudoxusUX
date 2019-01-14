@@ -1,7 +1,8 @@
 <?php
+// Page for a single announcement
 
-require("header.php");
 require("config.php");
+require("header.php");
 
 // Get itemid from URL
 $id = $_GET['id'];
@@ -13,12 +14,9 @@ $img = $row['img'];
 $title = $row['title'];
 $text = $row['text'];
 
-
 ?>
 
 <div class="container-fluid">
-
-
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -40,14 +38,6 @@ $text = $row['text'];
     <h4 class="display-4"><?php echo $title; ?></h4>
     <hr>
     <p><?php echo $text ?></p>
-    </div
-
-    </div>
 </div>
 
-<?php
-
-echo file_get_contents("html/footer.html");
-
-
-?>
+<?php echo file_get_contents("html/footer.html"); ?>

@@ -1,5 +1,9 @@
 <?php
-    include("config.php");
+    // This file is used to initialize the database with required tables
+    // as well as some demo content, it is used to test the website and does not
+    // contain any actual features
+
+    require("config.php");
     // Create user table
     if ( $mysqli->query("CREATE TABLE `users` (
     `id` int(4) NOT NULL auto_increment,
@@ -72,7 +76,7 @@
         echo "Announcement creation failed!";
     }
 
-    if ( $mysqli->query("CREATE TABLE `eudoxus`.`reservations` ( `bid` INT NOT NULL , `sid` INT NOT NULL ) ENGINE = MyISAM;" ) ) {
+    if ( $mysqli->query("CREATE TABLE `reservations` ( `bid` INT NOT NULL , `sid` INT NOT NULL ) ENGINE = MyISAM;" ) ) {
         echo "RESERVE Table created!";
     } else {
         echo "RESERVE creation failed!";

@@ -1,24 +1,23 @@
 <?php
 require("config.php");
-require("session.php");
+require("authenticate.php");
 // If the user has already a submitted application, redirect him
 // on final.php page where he can see the submitted books
-require("authenticate.php");
 $sessionid = $_SESSION['id'];
 $already = $mysqli->query("SELECT * FROM reservations WHERE sid=$sessionid ");
-if ( $already->num_rows > 0 ) {
-    header("Location: /final.php");
-}
+if ( $already ) {
+    if ( $already->num_rows > 0 ) {
+        header("Location: /final.php");
+    }        
+}   
 
 // If user submits the reservations
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['final']) ) {
-
+    // Add each one of them on reservations table
     foreach ( $_SESSION['cart'] as $r ) {
         // Insert each reservation into the database
         $id = $_SESSION['id'];
-        if ( !$mysqli->query("INSERT INTO reservations (`bid`,`sid`) VALUES ('$r','$id')" ) ) {
-            
-        } 
+        $mysqli->query("INSERT INTO reservations (`bid`,`sid`) VALUES ('$r','$id')" );
     }
     header("Refresh:0");
 } else if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['del']) ) {
@@ -29,7 +28,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['final']) ) {
 }
 
 require("header.php");
-
 
 ?>
 
@@ -67,13 +65,8 @@ require("header.php");
         
 ?>
 
-
-
-
 </div>
 </div>  
 </div>
 
-<?php
-echo file_get_contents("html/footer.html");
-?>
+<?php echo file_get_contents("html/footer.html"); ?>

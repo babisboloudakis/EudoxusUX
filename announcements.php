@@ -1,13 +1,7 @@
 <?php
-
-require("header.php");
 require("config.php");
-
-
-
+require("header.php");
 ?>
-
-
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -41,20 +35,7 @@ for ($i=0; $i < $results->num_rows; $i++) {
 
 ?>
 
-
 </div>
 </div>
 
-
-
-
-
-
-
-
-<?php
-
-echo file_get_contents("html/footer.html");
-
-
-?>
+<?php echo file_get_contents("html/footer.html"); ?>

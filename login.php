@@ -3,6 +3,10 @@
     require("config.php");
     require("session.php");
 
+    if ( !isset($_SESSION['came_from']) ) {
+        $_SESSION['came_from'] = 'index.php';
+    }
+
     if($_SERVER["REQUEST_METHOD"] == "POST" ) {
         
         // Read user credentials
@@ -24,7 +28,8 @@
             $_SESSION['type'] = $row['type'];            
             
             header("Location: ". $_SESSION['came_from']);
-    
+            header("Refresh:0");
+
         } else {
             echo "<p class='text-danger text-center'> Please try again. </p>";
         }
