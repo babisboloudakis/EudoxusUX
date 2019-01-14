@@ -51,7 +51,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="browse.php">Εξερεύνηση Συγγραμάτων</a>
-                        <a class="dropdown-item" href="checkout.php">Δήλωση Συγγραμάτων</a>
+                        <a class="dropdown-item" href="checkout.php">Τρέχουσα Δήλωση</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="helps.php">Βοήθεια</a>
                     </div>

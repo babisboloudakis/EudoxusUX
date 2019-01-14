@@ -99,7 +99,7 @@ if ( $results->num_rows > 0 ) {
             echo '<form action="" method="post">
                     <input type="hidden" name="selectedId" value="'. $row['id'] .'"/>
                     <input type="submit" value="Δήλωση Συγγράματος" name="add" class="btn btn-primary">
-                    </form>';
+                </form>';
         } else {
             echo '<form action="" method="post">
                     <input type="hidden" name="selectedId" value="'. $row['id'] .'"/>

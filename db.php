@@ -15,7 +15,7 @@
     }
 
     if ( $mysqli->query("CREATE TABLE `students` (
-    `id` int(4) NOT NULL auto_increment,
+    `id` int(4) NOT NULL,
     `university` varchar(65) NOT NULL default '',
     `semester` varchar(65) NOT NULL default '',
     PRIMARY KEY (`id`)
@@ -26,7 +26,7 @@
     }
 
     if ( $mysqli->query("CREATE TABLE `publishers` (
-    `id` int(4) NOT NULL auto_increment,
+    `id` int(4) NOT NULL ,
     `vat` varchar(65) NOT NULL default '',
     PRIMARY KEY (`id`)
     )" ) ) {
