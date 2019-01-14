@@ -23,8 +23,8 @@
             $_SESSION['type'] = $row['type'];            
 
             // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
-            // header("Refresh:0");
 
+            
         } else {
             echo "<p class='text-danger text-center'> Please try again. </p>";
         }

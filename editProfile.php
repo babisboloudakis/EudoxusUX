@@ -7,7 +7,6 @@
     if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
         // Retrieve form data
-        $username = $_POST['fuser'];
         $email = $_POST['femail'];
         $password1 = $_POST['fpass1'];
         $password1 = md5($password1);
@@ -15,15 +14,7 @@
         $password3 = $_POST['fpass3'];
         $phone = $_POST['fphone'];
 
-        // Update username
-        if ( !empty($username) ) {
-            if ( $mysqli->query("UPDATE `users` SET `username` = '$username' WHERE  `id` = {$_SESSION['id']} ") == TRUE ) {
-                $message = "<div class='alert alert-success'>Changes saved.</div>";
-                $_SESSION['user'] = $username;
-            } else {
-                $message = "<div class='alert alert-danger'>Changes not saved.</div>";
-            }
-        }
+        
         // Update email
         if ( !empty($email) ) {
             if ( $mysqli->query("UPDATE `users` SET `email` = '$email' WHERE  `id` = {$_SESSION['id']} ") == TRUE ) {
@@ -62,6 +53,26 @@
             }
         
         }
+
+        if ( $_SESSION['type'] == 'publisher' ) {
+            $vat = $_POST['fvat'];
+            if ( !empty($vat)) {
+                if ( $mysqli->query("UPDATE `publishers` SET `vat` = '$vat' WHERE  `id` = {$_SESSION['id']} ")  ) {
+                    $message = "<div class='alert alert-success'>Changes saved.</div>";
+                } else {
+                    $message = "<div class='alert alert-danger'>Vat not saved.</div>";
+                }
+            }
+        } else if ( $_SESSION['type'] == 'student' ) {
+            $uni = $_POST['funi'];
+            if ( !empty($uni)) {
+                if ( $mysqli->query("UPDATE `students` SET `university` = '$uni' WHERE  `id` = {$_SESSION['id']} ")  ) {
+                    $message = "<div class='alert alert-success'>Changes saved.</div>";
+                } else {
+                    $message = "<div class='alert alert-danger'>University not saved.</div>";
+                }
+            }
+        }
         
  
         // Update data on database
@@ -86,11 +97,6 @@
         <div class="col-md-6">
 
             <div class="form-group">
-                <h5 class="mb-2">Όνομα χρήστη</h5>
-                <label >Username </label>
-                <input type="text" id="user" name="fuser" class="form-control mb-2" placeholder="καινούριο username">        
-            </div>
-            <div class="form-group">
                 <h5 class="mb-2">Διεύθηνση E-mail</h5>
                 <label >Email </label>
                 <input type="text" id="user" name="femail" class="form-control mb-2" placeholder="Καίνούρια Διεύθηνση">    
@@ -109,6 +115,22 @@
                 <label >Καινούριο Τηλέφωνο </label>
                 <input type="text" id="user" name="fphone" class="form-control mb-2" placeholder="Καινούριο Τηλέφωνο">     
             </div>
+
+            <?php
+                if ( $_SESSION['type'] == 'publisher' ) {
+                    echo ' <div class="form-group">
+                        <h5 class="mb-2">Στοιχεία Εκδότη</h5>
+                        <label > ΑΦΜ </label>
+                        <input type="text" name="fvat" class="form-control mb-2" placeholder="ΑΦΜ">     
+                    </div> ';
+                } else if ( $_SESSION['type'] == 'student' ) {
+                    echo ' <div class="form-group">
+                        <h5 class="mb-2">Στοιχεία Φοιτητή</h5>
+                        <label > Πανεπιστήμιο </label>
+                        <input type="text" name="funi" class="form-control mb-2" placeholder="Πανεπιστήμιο">     
+                    </div> ';
+                }
+            ?>
             
 
         </div>
@@ -120,7 +142,34 @@
                 τα υπόλοιπα. Στην συνέχεια πατήστε το κουμπί Αποθήκευση.
             </p>
             <input type="submit" name="edit" value="edit" class="btn btn-primary">
-            <!-- <input type="button"  value="Καθαρισμός" class="btn btn-secondary"> -->
+            
+            <h5 class="mt-5">Στοιχεία Χρήστη:</h5>
+            <hr>
+            <?php 
+            
+            $userid = $_SESSION['id'];
+            if ( $_SESSION['type'] == 'publisher' ) {
+                
+                $results = $mysqli->query("SELECT * FROM users , publishers WHERE users.id = publishers.id AND users.id = '$userid' ");
+                $row = $results->fetch_assoc();
+                echo "<p> <em>E-mail: </em> ".$row['email']."</p>
+                <p> <em>Τηλεφώνο:</em> ".$row['telephone']."</p>
+                <p> <em>Τύπος Χρήστη:</em> ".$row['type']."</p>
+                <p> <em>ΑΦΜ:</em> ".$row['vat']."</p>";
+
+            } else if ( $_SESSION['type'] == 'student' ) {
+                
+                $results = $mysqli->query("SELECT * FROM users , students WHERE users.id = students.id AND users.id = '$userid' ");
+                $row = $results->fetch_assoc();
+                echo "<p> <em>E-mail: </em> ".$row['email']."</p>
+                <p> <em>Τηλεφώνο:</em> ".$row['telephone']."</p>
+                <p> <em>Τύπος Χρήστη:</em> ".$row['type']."</p>
+                <p> <em>Πανεπιστήμιο:</em> ".$row['university']."</p>";
+
+            }
+
+            ?>
+
         </div>
 
     </form>

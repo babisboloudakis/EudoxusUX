@@ -27,17 +27,22 @@
             if ( $fpassword == $fpassword2 ) {
                 $fpassword = md5($fpassword);
                 if ( $mysqli->query("INSERT INTO users (email,password,type) VALUES ('$femail','$fpassword','$type')" ) ) {
-                    $results = $mysqli->query("SELECT id FROM users WHERE email='$femail' AND password='$fpassword' ");
+                    $typ = $type . "s"; 
+                    // After inserting on type table
+                    $results = $mysqli->query("SELECT * FROM users WHERE email='$femail' AND password='$fpassword' ");
                     if ( $results->num_rows > 0 ) {
                         $row = $results->fetch_assoc();
-
                         $_SESSION['email'] = $femail;
                         $_SESSION['pass'] = $fpassword;
                         $_SESSION['id'] = $row['id'];
-                        $_SESSION['cart'] = array();
-                        // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);
-
-                    } 
+                        $_SESSION['type'] = $row['type'];
+                        
+                        // Also insert publisher or student table
+                        $userid = $row['id'];
+                        $mysqli->query("INSERT INTO $typ (id) VALUES ('$userid')");
+                        
+                        // header("Location: http://".$_SERVER['HTTP_HOST'] . $_SESSION['came_from']);       
+                    }
                 } 
         }
     }

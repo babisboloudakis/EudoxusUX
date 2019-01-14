@@ -1,7 +1,16 @@
 <?php
 require("config.php");
 require("authenticate.php");    
+
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+
+    $bid = $_POST['selectedId'];
+    $mysqli->query("DELETE FROM books WHERE id=$bid");
+}
+
 require("header.php");
+
+
 ?>
 
 
@@ -11,6 +20,7 @@ require("header.php");
 <div class="col-md-10 pt-5">
 
     <h3 class="display-5">Διαχείρηση Συγγραμάτων</h3>
+    <hr>
     
     <?php
     $result = $mysqli->query("SELECT * FROM books WHERE pid=$_SESSION[id]");
@@ -25,15 +35,17 @@ require("header.php");
             <img src="'.$row["image"].'" alt="image" style="height:80px; width:80px;" class="col-md-2"></img>
             <div class="col-md-2 offset-md-1 mt-4">'.$row['name'].'</div>
             <div class="col-md-2 offset-md-1 mt-4">'.$row['author'].'</div>
-            <input type="submit" style="width:10px; border-radius:100px;" class="btn btn-primary btn-sm col-md-1 offset-md-1 mt-3" value="Edit">
+            <form action="" method="post">
+                    <input type="hidden" name="selectedId" value="'. $row["id"] .'"/>
+                    <input type="submit" value="Διαγραφή Συγγράματος" name="add" class="btn btn-danger mt-4">
+                </form>
             </div><hr>';
         }
     }
         
 ?>
     
-    <hr>
-        <a href='publish.php'>Προσθήκη Συγγράματος</a>
+        <a href='publish.php' class="btn btn-success">Προσθήκη Συγγράματος</a>
     <hr>
 
     
